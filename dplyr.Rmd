@@ -1,0 +1,131 @@
+---
+title: "dplyr"
+author: "Zach Compton"
+date: "11/4/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Load Libraries 
+```{r}
+install.packages('tidyverse')
+library(tidyverse)
+```
+## Simulating data
+Lets simulate data for 10 random animals that I am making up.
+```{r cars}
+Species <- c("chicken", "duck", "tiger", "unicorn", 
+             "rabbit", "monky", "platypus", "rhino", "turkey", "hippo")
+Lifespan <- rnorm(10, 56, 20)
+BodyMass <- rnorm(10, 150, 40)
+NeoplasiaPrevalence <- rnorm(10,15,5)
+```
+
+Combine these three created variables into a single dataframe
+```{r}
+Data <- data.frame(Species, Lifespan, BodyMass, NeoplasiaPrevalence)
+```
+
+We can check out our data with the head function
+```{r}
+head(Data)
+```
+
+You can also specify how many rows (observations) you want to see at one time. Here I will say 10 so that we can see our whole dataset
+```{r}
+print(Data, 10)
+```
+
+## Filter
+You can use the filter function to search/subset columns by a specified criteria. Let's find species with a neoplasia prevalence less that 5%
+```{r}
+filter(Data, NeoplasiaPrevalence < 50)
+```
+
+We can add two conditional statements so that to be included in the subset the data need to meet to criteria (or as many criteria as you want to stack)
+```{r}
+filter(Data, NeoplasiaPrevalence > 5 , Lifespan < 50)
+```
+
+We can add an "or" statement to this by asking for NeoplasiaPrevalence that is also over 15%
+```{r}
+filter(Data, NeoplasiaPrevalence < 5 | NeoplasiaPrevalence > 15)
+```
+
+Quick note - we can also ask for "less than or equal to" or "greater than or equal to" as to not exclude species if they *happen* to be at exact value we ask for
+```{r}
+filter(Data, NeoplasiaPrevalence <= 5 | NeoplasiaPrevalence >= 15)
+```
+
+Of course if we are going to use this subset for further analyses we should variable name it so we can reference it in said analyses
+```{r}
+Data2 <- filter(Data, NeoplasiaPrevalence <= 5 | NeoplasiaPrevalence >= 15)
+```
+
+## Select 
+The filter function is about selecting observations (rows) but what if we want to subset by entire variables (columns)?
+Let's say we just wanted a data frame of only NeoplasiaPrevalence values
+```{r}
+Subset <- dplyr::select(Data, NeoplasiaPrevalence)
+```
+
+Notice the syntax here was a little different. I will show why in this example
+```{r, echo=T}
+dplyr::select(Data, NeoplasiaPrevalence)
+```
+This is a great example of a very common function not working even though it is set up correctly. 
+There are seveal different 'select' functions in r so you can use the dyplr::select to specify which package, i.e. dplyr, the function you are trying to use is from.
+
+## Mutate
+What if we want to create a new variable (column) in your data set, like we often have to do when we want to combine several life history variables
+```{r}
+Data <- mutate(Data, BodyMassxLifespan = BodyMass * Lifespan)
+```
+
+## Piping functions together
+When you want to be able to execute multiple functions at one you can tie them together with a pipe function %>%
+```{r}
+Data %>%
+   dplyr::select(BodyMass) %>%
+  filter(BodyMass > 50) 
+```
+
+## Arrange
+We can also arrange our data by certain criteria, like ascending or descening in value, much like an excel filter
+```{r}
+Data %>%
+  dplyr::select(BodyMass, Lifespan) %>%
+  arrange(desc(BodyMass))
+```
+
+## Summarise
+The summarise function (with a S, not a Z) is very similar to the base R 'tapply' function that allows us to execute some statistical summary on multiple columns at once
+```{r}
+Data %>% 
+  summarise_each (funs(mean), BodyMass, Lifespan, NeoplasiaPrevalence)
+```
+
+For those of you managing large comparative pathology data sets one useful function you could tack on the end of a series of searches is the n_distinct function which counts the number of distinct entries in a given column
+```{r}
+Data %>%
+n_distinct(Species)
+```
+
+## Random useful things
+You can take a random sample of observations (rows) from your data set. The first way is by take a fixed number sample 
+```{r}
+Data %>% sample_n(1000)
+```
+Or by specifying a proportion of rows given your total data set
+```{r}
+Data %>% sample_frac(0.25)
+```
+```{r}
+install.packages("tmaptools")
+library(tmaptools)
+palette_explorer() 
+```
+
