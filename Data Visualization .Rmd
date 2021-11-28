@@ -8,7 +8,7 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
+Example from tutorial 
 Set your working directory to the file that contains your dataset
 ```{r}
 setwd("~/Desktop/Comp Onc Projects/current big datasets")
