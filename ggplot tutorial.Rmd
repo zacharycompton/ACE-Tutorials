@@ -16,8 +16,11 @@ Before we start remember this is not a statistical test, we wont be using any ph
 Today's scatterplot visualization is going to focus on highlighting or emphasizing particular groups or taxa within your comparative data. This could mean emphasizing one class, clade, family, or species within your scatter plot. You will see what I mean by emphasize here shortly.
 
 ### Libraries
-Several new packages used for this, forgive me. In the original article the packages 'readr', 'ggplot', and 'stringr' are all listed seperately. However, as an ACE scholar you are all well aware that these packages are all inlcuded when we load the 'tidyerse' library. Ye
+Several new packages used for this, forgive me. In the original article the packages 'readr', 'ggplot', and 'stringr' are all listed seperately. However, as an ACE scholar you are all well aware that these packages are all inlcuded when we load the 'tidyerse' library. 
+
+The "devtools" package allows you to download packages that have been privately created (usually on Github) but have not been officially uploaded to the CRAN server
 ```{r, message=FALSEYe}
+install.packages("devtools")
 install.packages('ggfx')
 install.packages('ggforce')
 install.packages('gghighlight')
@@ -25,5 +28,106 @@ library(ggfx)
 library(ggforce)
 library(gghighlight)
 library(tidyverse)
+library(devtools)
+devtools::install_github('thomasp85/ggfx')
 ```
+
+Load our dataset for tutorials 
+```{r}
+Data <- read.csv("dummyData.csv")
+head(Data)
+```
+
+Before we build our graph let's take advantage of an awesome set of color palettes inspired from National Parks! These awesome palettes come from Katie Jolly at https://github.com/katiejolly/nationalparkcolors 
+
+```{r}
+install.packages("devtools")
+library(devtools)
+devtools::install_github(katiejolly/nationalparkcolors)
+library(nationalparkcolors)
+```
+
+
+Obviously, we will be using the color palette inspired by Saguaro National Park
+```{r}
+palette<- park_palette("Saguaro")
+```
+
+Okay lets build our ggplot graph using different colors for each of the 3 clades (Mammalia, Sauropsida, Amphibia). Reminder that Sauropsida is the clade that contains reptiles and birds. 
+
+```{r}
+ggplot(data = Data,
+       aes(x = log10(adult_weight),
+           y= NeoplasiaPrevalence,
+           color = Clade)) +
+  geom_point() +
+  geom_point(data = Data %>% filter(Clade == "Mammalia")) +
+  scale_color_manual(values = palette)+
+  labs(y = "Neoplasia Prevalence %",
+       x = "Log10 Body Mass (g)",
+       color = "", 
+       caption = "Just want to show how to add a caption below") +
+  theme_minimal() +
+  theme(legend.position = "top",
+        plot.title = ggtext::element_markdown(),
+        plot.caption = element_text(size = 8))
+```
+
+#### What do we mean *Emphasize* one clade?
+Okay this does a decent job showing the different clades based on color assignment. But what if you want to emphasize the trend of body mass vs neoplasia prevalence in mammals within the context of the other non-mammal data points. Emphasizing one clade while also showing the rest of the data points can be useful in showing some pattern in the data that is unique to that clade. 
+
+
+One way of accomplishing this is to wrap the geom_points with the blur function, then adding a second geom_point argument naming the clade you wish to be non-blurred
+```{r}
+ggplot(data = Data,
+       aes(x = log10(adult_weight),
+           y= NeoplasiaPrevalence,
+           color = Clade)) +
+  with_blur(
+  geom_point(),  sigma = unit(0.9, 'mm') #0.9 is the amount of blur
+  )+
+  geom_point(data = Data %>% filter(Clade == "Mammalia")) +
+  scale_color_manual(values = palette)+
+  labs(y = "Neoplasia Prevalence %",
+       x = "Log10 Body Mass (g)",
+       color = "", 
+       caption = "Just want to show how to add a caption below") +
+  theme_minimal() +
+  theme(legend.position = "top",
+        plot.title = ggtext::element_markdown(),
+        plot.caption = element_text(size = 8))
+```
+
+The mammal data points are rather spread out here which doesn't work well for the next way method of emphasizing a data group, circling it. If you are going to circle a data group they need to be fairly well placed together on the graph. So for this next graph lets emphasize the Amphibians 
+
+```{r}
+ggplot(data = Data,
+       aes(x = log10(adult_weight),
+           y= NeoplasiaPrevalence,
+           color = Clade)) +
+  with_blur(
+  geom_point(),  sigma = unit(0.9, 'mm') #0.9 is the amount of blur
+  )+
+   geom_mark_ellipse(aes(
+                        label = Clade,
+                        filter = Clade == 'Amphibia'),
+                      con.cap = 0,
+                      con.arrow = arrow(ends = "last",
+                                        length = unit(0.5, "cm")),
+                      show.legend = FALSE) +
+  geom_point(data = Data %>% filter(Clade == "Amphibia")) +
+  scale_color_manual(values = palette)+
+  labs(y = "Neoplasia Prevalence %",
+       x = "Log10 Body Mass (g)",
+       color = "", 
+       caption = "Just want to show how to add a caption below") +
+  theme_minimal() +
+  theme(legend.position = "top",
+        plot.title = ggtext::element_markdown(),
+        plot.caption = element_text(size = 8))
+```
+
+
+
+
 
