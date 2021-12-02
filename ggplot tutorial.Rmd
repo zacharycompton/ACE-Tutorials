@@ -1,0 +1,29 @@
+---
+title: "Highlighting Different Taxa in ggplot"
+author: "Zach Compton"
+date: "11/29/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+I got stuck on another comparative oncology script I was working on so I thought I would render a markdown based off a Medium article I read this morning on how to emphasize certain data groups in a beautiful way. The original article can be found here https://medium.com/@giulia-ruggeri/better-data-communication-with-ggplot2-part-2-615a5180ccb 
+
+Before we start remember this is not a statistical test, we wont be using any phylogenetic trees nor constructing any regression models. This is simply an exercise in data visualization. Of course, these data visualizations can always be paired with actual statistical tests but I have covered those in other tutorials.
+
+Today's scatterplot visualization is going to focus on highlighting or emphasizing particular groups or taxa within your comparative data. This could mean emphasizing one class, clade, family, or species within your scatter plot. You will see what I mean by emphasize here shortly.
+
+### Libraries
+Several new packages used for this, forgive me. In the original article the packages 'readr', 'ggplot', and 'stringr' are all listed seperately. However, as an ACE scholar you are all well aware that these packages are all inlcuded when we load the 'tidyerse' library. Ye
+```{r, message=FALSEYe}
+install.packages('ggfx')
+install.packages('ggforce')
+install.packages('gghighlight')
+library(ggfx)
+library(ggforce)
+library(gghighlight)
+library(tidyverse)
+```
+
