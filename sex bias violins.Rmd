@@ -1,0 +1,129 @@
+---
+title: "Sex Bias Violins"
+author: "Zach Compton"
+date: "12/5/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+#### Libraries
+```{r, message = F}
+library(tidyverse)
+library(cowplot)
+```
+
+### Make Violins 
+
+Read data in. This data set has been specifically designed to be used just for this violin script.
+Look at the head of the data to get a sense of how a data frame needs to be arranged for violin plots
+```{r}
+setwd("~/Desktop/Git/sexBias")
+Data <- read.csv("malignancy_combined.csv")
+head(Data)
+```
+
+Subset by class
+```{r}
+Mammals <- Data[Data$Clade=="Mammalia", 
+                    c("Prevalence", "Sex", "Clade")]
+Amphibians <- Data[Data$Clade=="Amphibia", 
+                    c("Prevalence", "Sex", "Clade")]
+Reptiles <- Data[Data$Clade=="Reptilia", 
+                    c("Prevalence", "Sex", "Clade")]
+Aves <- Data[Data$Clade=="Aves", 
+                    c("Prevalence", "Sex", "Clade")]
+
+```
+
+Violin code
+Note-- The stats included in this script come from a Fisher's exact test 
+```{r}
+mam_vio <- ggplot(Amphibians, aes(x=Sex, y=100*Prevalence, fill=Sex)) + 
+  geom_violin(adjust=1) +
+  theme(
+    legend.title = element_text(size = 21, face = "bold"),
+    legend.text = element_text(size = 20)
+  ) +
+ labs(title ="Malignancy Prevalence by Sex in Amphibians", subtitle = "Fisher's Exact Test: P-Value = 0.7796, Odds Ratio =0.72") +
+  labs(fill = 'Sex')+
+ylab("Malignancy Prevalence %") +
+  xlab("Sex") +
+  theme(
+    plot.title = element_text(size = 20, face = "bold")) +
+  theme(axis.text=element_text(size=16),
+        axis.title=element_text(size=16)) 
+print(mam_vio)
+
+```
+
+Add some mean bars and clean up the background with cowplot 
+```{r}
+mam_vio + geom_jitter(shape=16, position=position_jitter(0.2))+
+stat_summary(fun=mean, geom="crossbar", size=0.7) + 
+scale_fill_manual(values = c("#56B4E9", "#CC79A7", "#F0E442")) +
+theme_cowplot(12) 
+  theme(legend.position = "none")
+
+```
+
+### Density Plots 
+
+Single Density Plot
+```{r}
+ggplot(Data, aes(x=Prevalence*100,y=..density..,fill=factor(Sex))) + 
+  geom_density(alpha=0.25) +
+  labs(title  = "Distribution of Malignancy Prevalence by Sex in Aves",fill = "Sex")+
+  scale_fill_discrete(labels = c("Male", "Female"))+
+  theme_cowplot(12)
+```
+
+Install packages for aligning ggplot graphs together
+```{r, message=F, error=F}
+library("gridExtra")  
+```
+
+Make and NAME the plots!!
+
+#### Neoplasia Distribution
+```{r}
+
+mam<-ggplot(Mammals, aes(x=Prevalence*100,y=..density..,fill=factor(Sex))) + 
+  geom_density(alpha=0.25) +
+  labs(title  = "Mammalia",fill = "Sex")+
+  xlab("Malignancy Prevalence") +
+   ylab(NULL)+
+  scale_fill_discrete(labels = c("Male", "Female"))+
+  theme_cowplot(12)
+
+rep<-ggplot(Reptiles, aes(x=Prevalence*100,y=..density..,fill=factor(Sex))) + 
+  geom_density(alpha=0.25) +
+  labs(title  = "Reptilia",fill = "Sex")+
+  xlab("Malignancy Prevalence") +
+   ylab(NULL)+
+  scale_fill_discrete(labels = c("Male", "Female"))+
+  theme_cowplot(12)
+
+amph<-ggplot(Amphibians, aes(x=Prevalence*100,y=..density..,fill=factor(Sex))) + 
+  geom_density(alpha=0.25) +
+  labs(title  = "Amphibia",fill = "Sex")+
+  xlab("Malignancy Prevalence") +
+   ylab(NULL)+
+  scale_fill_discrete(labels = c("Male", "Female"))+
+  theme_cowplot(12)
+
+aves<-ggplot(Aves, aes(x=Prevalence*100,y=..density..,fill=factor(Sex))) + 
+  geom_density(alpha=0.25) +
+  labs(title  = "Aves",fill = "Sex")+
+  xlab("Malignancy Prevalence") +
+  ylab(NULL)+
+  scale_fill_discrete(labels = c("Male", "Female"))+
+  theme_cowplot(12)
+```
+
+String them together into one plot
+```{r}
+grid.arrange(mam, rep, aves, amph, ncol = 2)         
+```
+
