@@ -1,120 +1,112 @@
-﻿Clade,Species,NeoplasiaPrevalence,adult_weight
-Mammalia,Cebuella pygmaea,0.03125,124
-Mammalia,Sciurus carolinensis,0,533
-Mammalia,Pipistrellus pipistrellus,0.016666667,652
-Sauropsida,Pantherophis guttatus,0,900
-Mammalia,Phocoena phocoena,0,52500
-Mammalia,Delphinus delphis,0.273684211,80000
-Mammalia,Muscardinus avellanarius,0.35,27.3
-Sauropsida,Gallus gallus,0.47826087,779.8
-Mammalia,Lemniscomys barbarus,0.285714286,26.2
-Mammalia,Pteropus rodricensis,0.422018349,350
-Mammalia,Microtus agrestis,0.431034483,46
-Mammalia,Heterocephalus glaber,0.544217687,35
-Mammalia,Saimiri sciureus,0.79047619,925
-Mammalia,Phoca vitulina,0.024390244,115000
-Sauropsida,Melopsittacus undulatus,0.245283019,30
-Sauropsida,Heloderma suspectum,0.19047619,553.41
-Mammalia,Dasypus novemcinctus,0.051282051,5500
-Mammalia,Macropus parma,0.055555556,4250
-Mammalia,Macroscelides proboscideus,0.031746032,40
-Sauropsida,Boa constrictor,0.228070175,3532
-Mammalia,Artibeus jamaicensis,0.1,42.2
-Mammalia,Litocranius walleri,0.075471698,43500
-Mammalia,Macropus rufogriseus,0.051948052,16200
-Mammalia,Carollia perspicillata,0.081818182,15
-Mammalia,Acinonyx jubatus,0.253164557,53500
-Amphibia,Litoria infrafrenata,0.123076923,452
-Sauropsida,Pogona vitticeps,0.220338983,500
-Mammalia,Macropus robustus,0.072463768,30000
-Sauropsida,Numida meleagris,0.240740741,1299
-Sauropsida,Nymphicus hollandicus,0.128571429,90
-Sauropsida,Meleagris gallopavo,0.14084507,6050
-Sauropsida,Leucopsar rothschildi,0.111111111,95
-Mammalia,Procavia capensis,0.101351351,3600
-Mammalia,Macropus rufus,0.09375,55000
-Mammalia,Nanger dama,0.03125,73000
-Amphibia,Trachycephalus resinifictrix,0,497
-Sauropsida,Corallus caninus,0,555
-Sauropsida,Dendrocygna autumnalis,0.373134328,828
-Mammalia,Rattus norvegicus,0,300
-Mammalia,Sus scrofa,0,130000
-Mammalia,Leontopithecus chrysomelas,0,535
-Amphibia,Ambystoma mexicanum,0.31316726,224
-Mammalia,Suricata suricatta,0,776
-Sauropsida,Morelia viridis,0,3113
-Mammalia,Mustela nigripes,0,1021
-Amphibia,Cornufer guentheri,0.013793103,1255
-Sauropsida,Erythrura gouldiae,0.14084507,12
-Sauropsida,Crotalus lepidus,0.024390244,219
-Mammalia,Saguinus oedipus,0.245283019,445.5
-Mammalia,Capra hircus,0.19047619,61000
-Mammalia,Rousettus aegyptiacus,0.051282051,125
-Amphibia,Dyscophus antongilii,0.055555556,226
-Sauropsida,Phoenicopterus chilensis,0.073170732,2277
-Sauropsida,Asarcornis scutulata,0.036363636,3000
-Sauropsida,Uroplatus phantasticus,0.036363636,984
-Amphibia,Bufo lemur,0.092920354,654
-Sauropsida,Sceloporus cyanogenys,0.087719298,35.59
-Mammalia,Hydrochoerus hydrochaeris,0.2,55000
-Sauropsida,Uroplatus sikorae,0.046875,1258
-Sauropsida,Ramphastos swainsonii,0.058823529,2446
-Mammalia,Mus musculus,0.220338983,20.5
-Mammalia,Oryctolagus cuniculus,0.277419355,1800
-Mammalia,Cynomys ludovicianus,0.255474453,1125
-Sauropsida,Trichoglossus moluccanus,0.034482759,119.55
-Sauropsida,Cosmopsarus regius,0.037735849,3466
-Sauropsida,Pteroglossus aracari,0.018518519,261.75
-Sauropsida,Morelia spilota,0.046875,15926
-Sauropsida,Trichoglossus haematodus,0.020408163,115.1
-Sauropsida,Boiga dendrophila,0.029411765,3564
-Mammalia,Zalophus californianus,0.280701754,180000
-Amphibia,Agalychnis callidryas,0.073170732,2446
-Sauropsida,Spheniscus humboldti,0.036363636,4379
-Sauropsida,Bitis arietans,0.036363636,2381
-Sauropsida,Dendrocygna viduata,0.092920354,610
-Amphibia,Anaxyrus baxteri,0.087719298,6449
-Sauropsida,Phoenicopterus ruber,0.2,3065.8
-Amphibia,Pipa pipa,0.046875,4621
-Amphibia,Atelopus zeteki,0.058823529,222
-Mammalia,Ovis aries,0.220338983,80000
-Amphibia,Nectophrynoides asperginis,0.277419355,648
-Amphibia,Dendrobates tinctorius,0.255474453,1649
-Sauropsida,Rollulus rouloul,0.034482759,224.5
-Sauropsida,Eudocimus ruber,0.037735849,615
-Amphibia,Rana sierrae,0.018518519,65456
-Amphibia,Mantella aurantiaca,0.046875,6548
-Sauropsida,Columba livia,0.020408163,358.7
-Sauropsida,Agapornis nigrigenis,0.029411765,40.45
-Sauropsida,Chamaeleo calyptratus,0.280701754,200.215
-Mammalia,Panthera tigris,0.338028169,119700
-Amphibia,Phyllobates bicolor,0.055555556,12345
-Amphibia,Rana temporaria,0.031746032,1654
-Sauropsida,Pitta sordida,0.228070175,64
-Amphibia,Bufo bufo,0.1,3659
-Amphibia,Xenopus longipes,0.075471698,6649
-Amphibia,Phyllomedusa bicolor,0.051948052,364
-Amphibia,Triturus cristatus,0.081818182,45698
-Sauropsida,Crex crex,0.253164557,155.5
-Sauropsida,Erpeton tentaculatum,0.123076923,131
-Sauropsida,Threskiornis aethiopicus,0.220338983,1530
-Sauropsida,Spheniscus demersus,0.072463768,3135
-Sauropsida,Ctenosaura bakeri,0.240740741,399.4
-Amphibia,Alytes muletensis,0.128571429,6546
-Sauropsida,Phrynosoma asio,0.14084507,100
-Sauropsida,Copsychus malabaricus,0.111111111,29.35
-Sauropsida,Milvus milvus,0.220338983,1080
-Sauropsida,Passer domesticus,0.072463768,25.3
-Sauropsida,Geokichla citrina,0.240740741,53.15
-Sauropsida,Theristicus melanopis,0.128571429,1200
-Sauropsida,Eos bornea,0.14084507,156
-Sauropsida,Lophura edwardsi,0.111111111,1082.5
-Sauropsida,Chelodina mccordi,0.101351351,6494
-Mammalia,Lemur catta,0.09375,2555
-Mammalia,Panthera leo,0.03125,175000
-Mammalia,Didelphis marsupialis,0,1530
-Mammalia,Phascolarctos cinereus,0,9300
-Mammalia,Cavia fulgida,0.373134328,282.5
-Mammalia,Lycaon pictus,0,26500
-Mammalia,Atelerix albiventris,0,500
-Mammalia,Mustela putorius,0,809
+"","X","Species","NeoplasiaPrevalence","max_longevity","adult_weight","SE","Keep"
+"2",2,"Sciurus_carolinensis",0.1,283.2,533,0.00120190277958421,TRUE
+"3",3,"Pipistrellus_pipistrellus",0.075471698,199.2,-1,0.00119524786440974,TRUE
+"4",4,"Pantherophis_guttatus",0.051948052,387.6,900,0.00121119329182157,TRUE
+"5",5,"Phocoena_phocoena",0.081818182,244.8,52500,0.00121301804268392,TRUE
+"6",6,"Delphinus_delphis",0.253164557,240,80000,0.00120298460996451,TRUE
+"7",7,"Muscardinus_avellanarius",0.123076923,63.6,27.3,0.00119823152514376,TRUE
+"8",8,"Gallus_gallus",0.220338983,360,779.8,0.00121384506936022,TRUE
+"9",9,"Lemniscomys_barbarus",0.072463768,52.8,26.2,0.00119450184791784,TRUE
+"10",10,"Pteropus_rodricensis",0.240740741,336,350,0.0011926903032022,TRUE
+"11",11,"Microtus_agrestis",0.128571429,57.6,46,0.0011858659909328,TRUE
+"12",12,"Heterocephalus_glaber",0.14084507,372,35,0.00118690812345112,TRUE
+"13",13,"Saimiri_sciureus",0.111111111,362.4,925,0.00121874578293324,TRUE
+"14",14,"Phoca_vitulina",0.101351351,571.2,115000,0.0012085788486802,TRUE
+"15",15,"Melopsittacus_undulatus",0.09375,252,30,0.00119360629554502,TRUE
+"16",16,"Heloderma_suspectum",0.22,346.8,553.41,0.00120523423263673,TRUE
+"17",17,"Dasypus_novemcinctus",0.101449275,267.6,5500,0.00119881635916072,TRUE
+"18",18,"Macropus_parma",0.105263158,190.8,4250,0.00119570064953028,TRUE
+"19",19,"Macroscelides_proboscideus",0.123076923,104.4,40,0.0012078916146331,TRUE
+"20",20,"Boa_constrictor",0.253807107,484.8,3532,0.00118954691145642,TRUE
+"21",21,"Artibeus_jamaicensis",0.166666667,230.4,42.2,0.00117754693072997,TRUE
+"22",22,"Litocranius_walleri",0.03125,207.6,43500,0.0011821542872334,TRUE
+"24",24,"Carollia_perspicillata",0,204,15,0.00118347705378269,TRUE
+"25",25,"Acinonyx_jubatus",0.373134328,246,53500,0.00120716819161434,TRUE
+"26",26,"Litoria_infrafrenata",0,-1,-1,0.00120532354492326,TRUE
+"27",27,"Pogona_vitticeps",0,144,500,0.00120166795541256,TRUE
+"28",28,"Macropus_robustus",0,264,30000,0.00120067278690351,TRUE
+"29",29,"Numida_meleagris",0.31316726,-1,1299,0.00120504708034884,TRUE
+"30",30,"Nymphicus_hollandicus",0,420,90,0.0012144373572868,TRUE
+"31",31,"Meleagris_gallopavo",0,156,6050,0.00118899359337876,TRUE
+"32",32,"Leucopsar_rothschildi",0,300,95,0.00119772519714216,TRUE
+"33",33,"Procavia_capensis",0.013793103,177.6,3600,0.00120002525652973,TRUE
+"34",34,"Macropus_rufus",0.14084507,300,55000,0.00119148114188078,TRUE
+"35",35,"Nanger_dama",0.024390244,231.6,73000,0.0012077211269178,TRUE
+"36",36,"Trachycephalus_resinifictrix",0.245283019,-1,-1,0.00120364274678497,TRUE
+"37",37,"Corallus_caninus",0.19047619,223.2,-1,0.00119127784256411,TRUE
+"38",38,"Dendrocygna_autumnalis",0.051282051,98.4,828,0.00119727842491697,TRUE
+"39",39,"Rattus_norvegicus",0.055555556,45.6,300,0.00120239544466691,TRUE
+"40",40,"Sus_scrofa",0.031746032,324,130000,0.00120944292316641,TRUE
+"41",41,"Leontopithecus_chrysomelas",0.2,255.6,535,0.00120058364881619,TRUE
+"42",42,"Ambystoma_mexicanum",0.068493151,204,-1,0.00120305148722364,TRUE
+"43",43,"Suricata_suricatta",0.186567164,247.2,776,0.00119171132389175,TRUE
+"44",44,"Morelia_viridis",0.083333333,247.2,3113,0.00119793283212943,TRUE
+"45",45,"Mustela_nigripes",0.25,112.8,1021,0.00119292444797612,TRUE
+"46",46,"Cornufer_guentheri",0.06741573,-1,-1,0.00119916518306377,TRUE
+"47",47,"Erythrura_gouldiae",0.041322314,-1,12,0.00119994909699922,TRUE
+"48",48,"Crotalus_lepidus",0.058823529,403.2,219,0.00119528253468752,TRUE
+"49",49,"Saguinus_oedipus",0.216666667,314.4,445.5,0.00120124895960814,TRUE
+"50",50,"Capra_hircus",0.41025641,249.6,61000,0.00119637338965163,TRUE
+"51",51,"Rousettus_aegyptiacus",0.192982456,274.8,125,0.00119002541938942,TRUE
+"52",52,"Dyscophus_antongilii",0.111111111,-1,-1,0.00120393802367037,TRUE
+"53",53,"Phoenicopterus_chilensis",0.073170732,440.4,2277,0.00119452291098705,TRUE
+"54",54,"Asarcornis_scutulata",0.036363636,-1,3000,0.00119932515994385,TRUE
+"55",55,"Uroplatus_phantasticus",0.036363636,-1,-1,0.00119785920758962,TRUE
+"57",57,"Sceloporus_cyanogenys",0.087719298,80.4,35.59,0.00119135156581449,TRUE
+"58",58,"Hydrochoerus_hydrochaeris",0.2,181.2,55000,0.00120124986992266,TRUE
+"59",59,"Uroplatus_sikorae",0.046875,15.6,-1,0.00121258979710056,TRUE
+"60",60,"Ramphastos_swainsonii",0.058823529,-1,-1,0.00117645784491211,TRUE
+"61",61,"Mus_musculus",0.220338983,72,20.5,0.00118767169324439,TRUE
+"62",62,"Oryctolagus_cuniculus",0.277419355,216,1800,0.00117926794550771,TRUE
+"63",63,"Cynomys_ludovicianus",0.255474453,132,1125,0.00118968817165919,TRUE
+"65",65,"Cosmopsarus_regius",0.037735849,-1,-1,0.00119965193594698,TRUE
+"66",66,"Pteroglossus_aracari",0.018518519,-1,261.75,0.00119214313315632,TRUE
+"67",67,"Morelia_spilota",0.046875,235.2,15926,0.00118593288701209,TRUE
+"68",68,"Trichoglossus_haematodus",0.111111111,193.2,115.1,0.00120043652640554,TRUE
+"69",69,"Boiga_dendrophila",0.073170732,204,-1,0.00120179087518133,TRUE
+"70",70,"Zalophus_californianus",0.036363636,428.4,180000,0.00121586193106995,TRUE
+"71",71,"Agalychnis_callidryas",0.036363636,-1,-1,0.00122116223963503,TRUE
+"72",72,"Spheniscus_humboldti",0.092920354,360,4379,0.00119102687185387,TRUE
+"73",73,"Bitis_arietans",0.087719298,189.6,2381,0.00118893154777169,TRUE
+"74",74,"Dendrocygna_viduata",0.2,144,610,0.00120360717593011,TRUE
+"75",75,"Anaxyrus_baxteri",0.046875,-1,-1,0.00119984682214107,TRUE
+"76",76,"Phoenicopterus_ruber",0.058823529,528,3065.8,0.00119724841531424,TRUE
+"77",77,"Pipa_pipa",0,92.4,-1,0.00117771130524195,TRUE
+"78",78,"Atelopus_zeteki",0,-1,-1,0.00121496446598055,TRUE
+"79",79,"Ovis_aries",0,273.6,80000,0.00120548412595889,TRUE
+"81",81,"Dendrobates_tinctorius",0.123076923,-1,-1,0.00120175238790066,TRUE
+"82",82,"Rollulus_rouloul",0.192982456,-1,224.5,0.00119985714269735,TRUE
+"83",83,"Eudocimus_ruber",0.111111111,398.4,615,0.00120786688080654,TRUE
+"85",85,"Mantella_aurantiaca",0.036363636,130.8,-1,0.00120699391708551,TRUE
+"86",86,"Columba_livia",0.036363636,420,358.7,0.00119695675735148,TRUE
+"87",87,"Agapornis_nigrigenis",0.092920354,-1,40.45,0.00119237253838846,TRUE
+"88",88,"Chamaeleo_calyptratus",0.087719298,-1,200.215,0.00120459730782666,TRUE
+"89",89,"Panthera_tigris",0.2,315.6,119700,0.00118217220586985,TRUE
+"90",90,"Phyllobates_bicolor",0.046875,-1,-1,0.00119674278267854,TRUE
+"91",91,"Rana_temporaria",0.058823529,324,-1,0.00118920832851073,TRUE
+"92",92,"Pitta_sordida",0,-1,64,0.00119927106389011,TRUE
+"93",93,"Bufo_bufo",0,480,-1,0.001213278612406,TRUE
+"94",94,"Xenopus_longipes",0,-1,-1,0.00119788599348542,TRUE
+"95",95,"Phyllomedusa_bicolor",0,123.6,-1,0.00118365350494549,TRUE
+"96",96,"Triturus_cristatus",0.123076923,336,-1,0.00119121530656456,TRUE
+"97",97,"Crex_crex",0.220338983,70,155.5,0.00120023948656034,TRUE
+"98",98,"Erpeton_tentaculatum",0.072463768,163.2,131,0.00119474998324636,TRUE
+"99",99,"Threskiornis_aethiopicus",0.240740741,444,1530,0.00120812597600178,TRUE
+"100",100,"Spheniscus_demersus",0.128571429,327.6,3135,0.00121294853949927,TRUE
+"101",101,"Ctenosaura_bakeri",0.14084507,165.6,399.4,0.00119056352623979,TRUE
+"102",102,"Alytes_muletensis",0.111111111,-1,-1,0.0012034154658842,TRUE
+"103",103,"Phrynosoma_asio",0,-1,100,0.00119832957381043,TRUE
+"105",105,"Milvus_milvus",0.31316726,456,1080,0.00117958315304503,TRUE
+"106",106,"Passer_domesticus",0,276,25.3,0.00119084628618499,TRUE
+"107",107,"Geokichla_citrina",0,-1,53.15,0.00122198265077553,TRUE
+"108",108,"Theristicus_melanopis",0,414,1200,0.00118527977640398,TRUE
+"109",109,"Eos_bornea",0.013793103,296.4,156,0.00120264610337847,TRUE
+"110",110,"Lophura_edwardsi",0.14084507,-1,1082.5,0.00120020919522981,TRUE
+"112",112,"Lemur_catta",0.245283019,447.6,2555,0.00119556632083822,TRUE
+"113",113,"Panthera_leo",0.19047619,324,175000,0.00120633590995647,TRUE
+"114",114,"Didelphis_marsupialis",0.051282051,50.4,1530,0.00117645786620319,TRUE
+"115",115,"Phascolarctos_cinereus",0.055555556,265.2,9300,0.00118747133609513,TRUE
+"116",116,"Cavia_fulgida",0.031746032,-1,282.5,0.00119717530195743,TRUE
+"117",117,"Lycaon_pictus",0.2,204,26500,0.0011944004332466,TRUE
+"118",118,"Atelerix_albiventris",0.068493151,136.8,500,0.00120394525239485,TRUE
+"119",119,"Mustela_putorius",0.186567164,133.2,809,0.00119369074227114,TRUE
