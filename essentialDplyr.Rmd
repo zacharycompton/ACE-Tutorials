@@ -1,0 +1,233 @@
+---
+title: "Essential Dplyr"
+author: "Zach Compton"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Installing Packages & Loading Libraries 
+```{r message=FALSE, warning=FALSE, results=FALSE}
+install.packages('tidyverse',repos="https://cloud.r-project.org")
+library(tidyverse)
+```
+If you have issues installing, updating packages, or knitting your document, there is a chance your R codebase is out of date, visit <https://zacharycompton.github.io//installation/#rupdate> for suggestions on how to fix the issue.
+
+###### **Notice** 'dplyr' is included in a very widely used package group called 'tidyverse' and you will be using it in almost everything you do in the group. If you want to know details about 'tidyverse' or other packages you have installed, use the following code in your RStudio console (replacing tidyverse with your appropriate package):
+```
+vignette("tidyverse")
+```
+
+
+## 1. Simulating some data
+Lets simulate data for 10 random animals that I am making up and assign them to four variables
+```{r}
+Species <- c("chicken", "duck", "tiger", "unicorn", 
+             "rabbit", "monky", "platypus", "rhino", "turkey", "hippo") 
+#That is... in fact... how I spell monky.
+Lifespan <- rnorm(10, 56, 20)
+BodyMass <- rnorm(10, 150, 40)
+NeoplasiaPrevalence <- rnorm(10,15,5)
+```
+###### The **c("a", "b", "c")** is a built in R function that stands for "combine" that allows you to collect values into a vector.
+###### The **rnorm(n, mean, sd)** is a built in R function that generates a random number using a normal(bell curve) distribution.
+
+<br> <!--This is inline HTML to force a spacer between lines-->
+
+#### Combine these four created variables into a single dataframe called "Data"
+```{r}
+Data <- data.frame(Species, Lifespan, BodyMass, NeoplasiaPrevalence)
+```
+###### The **data.frame()** is a built in R function that allows you to combine multiple vectors into a table.
+
+<br> <!--This is inline HTML to force a spacer between lines-->
+
+#### Turn the data.frame into a Dplyr "Tibble" (a table object specifically used by dplyr)
+```{r}
+Data <- as_tibble(Data)
+```
+###### **Notice** tibbles become more and more useful as your datasets get larger and larger.  For more information on tibbles: <a href="https://r4ds.had.co.nz/tibbles.html#tibbles" target="_blank">Click Here</a>
+<br> <!--This is inline HTML to force a spacer between lines-->
+
+### 1.1 Use glimpse() and/or head() to look at Data
+```{r}
+glimpse(Data)
+head(Data)
+```
+###### **Notice** that both functions show similar data in a different orientation, whichever you use is going to be preference.  head() is a built in function that can be used on all data-types, while glimpse() is a specific 'dplyr' function that is extremely useful on medium to large datasets.
+
+<br> <!--This is inline HTML to force a spacer between lines-->
+
+### 1.2 Use print() or just the variable name to print the object
+```{r}
+print(Data) #using the print() function can be helpful for signaling intention for people viewing your code
+Data
+```
+
+<br> <!--This is inline HTML to force a spacer between lines-->
+
+### 1.3 The pipe operator '%>%'
+In order for dplyr to apply multiple functions to your data, you must move or 'pipe' the previous results into your next function (this is similar to ggplot2, in which they use '+' to pipe, but often it's refered to layering, but it is essentially the same thing.)
+```
+Data %>% Function#1() %>% Function#2() %>% Function#3() %>% ...
+```
+###### The above is just an example of the format and the syntax for piping '%>%' using dplyr.
+
+<br> <!--This is inline HTML to force a spacer between lines-->
+
+## 2. select() function
+Select function allows you to select specific columns and put them in a new 'tibble'. Type "?select" in the console for more information.
+```{r}
+Data.Lifespan <- Data %>% select(Species, Lifespan)
+print(Data.Lifespan)
+```
+You can also select columns in a range using a colon between variables:
+```
+Data %>% select(variable1:variable10, variable15)
+```
+
+<br> <!--This is inline HTML to force a spacer between lines-->
+
+## 3. filter() function
+Filter function allows you to quickly filter important values in columns to create a data subset. Type "?filter" in the console for more information.
+```{r}
+Data %>% filter(Lifespan > 50, NeoplasiaPrevalence < 20) 
+#make sure to use double equal signs when you want results equal to a value "=="
+```
+###### **Notice** that if you don't assign your results to a new variable, dplyr will automatically print the results.  This is useful if you want a quick look.
+###### **Notice** using two variable operators with a comma between is considered an AND.  Check out the next step for an example of OR.
+
+### 3.1 "|" is the symbol for OR
+```{r}
+Data %>% filter(Lifespan > 60 | NeoplasiaPrevalence < 15) 
+```
+
+<br> <!--This is inline HTML to force a spacer between lines-->
+
+## 4. arrange() function
+Arrange function allows you to arrange by ascending or descending order on a particular column.  Type "?arrange" in the console for more information.
+```{r}
+Data.Lifespan %>% arrange(Lifespan) #reusing Data.Lifespan, easier to look at
+Data.Lifespan %>% arrange(desc(Lifespan)) #reusing Data.Lifespan, easier to look at
+```
+###### **Notice** that to get descending results, you 'nest' the desc() function inside the arrange() function.  This is R's (and any programming languages) built in process of natural 'piping' where instead of piping from left to right, you nest the functions to pipe the value from the middle out.
+
+<br> <!--This is inline HTML to force a spacer between lines-->
+
+## 5. mutate() function
+Mutate function allows you to take a column, and apply arithmetic to it to create a new column.  In our example, we'll use it to add an additional simulated column to represent the number of records we have for each species.
+```{r}
+Data <- Data %>% mutate(Number_Of_Records = sample(1:1000, size = 10))
+head(Data)
+```
+###### The **sample(range, size)** is a built in R function that generates a random number using a specified range and size (length of vector).
+###### **Notice** a fifth column has been created called "Number_Of_Records".
+
+<br> <!--This is inline HTML to force a spacer between lines-->
+
+## 6. rename() function
+  Lets use the rename() function to keep our column names consistent. "Number_Of_Records" to "NumberOfRecords".
+```{r}
+Data <- Data %>% rename(NumberOfRecords = Number_Of_Records)
+print(Data)
+```
+###### **Notice** renaming columns can also be done during a select(), mutate(), and transmute().
+
+
+<br> <!--This is inline HTML to force a spacer between lines-->
+
+## 7. transmute() function
+Transmute function combines both a select() and a mutate().
+```{r}
+Data.BodyLifeRatio <- Data %>%
+  transmute(Species, NeoplasiaPrevalence, NumberOfRecords, BodyLifeRatio = BodyMass/Lifespan)
+print(Data.BodyLifeRatio)
+```
+###### **Notice** that we were able to exclude the original "Lifespan", and "BodyMass" variables, and create a new ratio variable "BodyLifeRatio".
+
+<br> <!--This is inline HTML to force a spacer between lines-->
+
+## 8. relocate() function
+Relocate function can be used to move columns around.  Lets move "NumberOfRecords" to the end.
+```{r}
+Data <- Data %>% relocate(NumberOfRecords, .after = last_col())
+print(Data)
+```
+###### **Notice** that you can move multiple columns at a time using commas between, or colon to represent a range.
+###### **Notice** that there is a period in the ".after" argument, you usually see this as a way for the package from confusing it as a column rename.
+
+<br> <!--This is inline HTML to force a spacer between lines-->
+
+### 8.1 Moving a column to another tibble
+```{r}
+BodyLifeRatio <- Data.BodyLifeRatio %>% select(BodyLifeRatio) #Separate out the column into its own variable
+Data <- Data %>% mutate(BodyLifeRatio, .before = NumberOfRecords) #Add the column to "Data" using Mutate()
+head(Data)
+```
+###### **Notice** again, the argument or attribute (attr) ".before" and ".after" to help specify where you would like the new column to exist.
+
+<br> <!--This is inline HTML to force a spacer between lines-->
+
+## 9. summarize()/summarise() function
+Some examples of functions that can be used in the summarize() or summarise() function.  For more information, you can type '?summarize' into the RStudio console.
+```{r}
+Data.Summarized <- Data %>% summarize(NeoPrevMean = mean(NeoplasiaPrevalence),
+                                      TotalRecords = sum(NumberOfRecords),
+                                      MinLifespan =  min(Lifespan),
+                                      MaxLifespan =  max(Lifespan),
+                                      NeoPrevSD = sd(NeoplasiaPrevalence),
+                                      NeoPrevIQR = IQR(NeoplasiaPrevalence),
+                                      LifespanVariance = var(Lifespan),
+                                      BodyMassMAD = mad(BodyMass))
+glimpse(Data.Summarized)
+```
+###### **Notice** that summarize() and summarise() are syntax synonyms.
+###### **IQR()** function is used to compute the interquartile range of a given object of numerical values.
+###### **mad()** function: median absolute deviation.
+
+<br> <!--This is inline HTML to force a spacer between lines-->
+
+## 10. group_by() and ungroup() function
+If you had multiple unique categorical variables in a column, you could group them as a unique bucket.
+```{r}
+Data.Group <- Data %>% add_row(Data) %>% add_row(Data) %>% arrange(Species)
+head(Data.Group)
+
+```
+As you can see above, we added Data to itself twice, and now we have 3 copies of each species.  Now we can use group_by() to count.
+```{r}
+Data.Group %>% group_by(Species) %>% summarize(Count = n())
+ungroup(Data.Group)
+```
+###### **Notice** you can see that 'Species' was grouped by it's unique name, and the function n() was used to count how many records there were.
+###### **Important!** a group_by() will stay attached to a tibble, so make it a habit to use the ungroup() function after every group_by()!!! This ensures your results aren't unintentionally impacted during further analysis.
+
+<br> <!--This is inline HTML to force a spacer between lines-->
+
+## 11. count() function
+The count() function is a quick dplyr function that automatically has group_by() and n() built in for quick counts.
+```{r}
+Data.Group %>% count(Species)
+```
+###### **Notice** similar results using less code.
+
+<br> <!--This is inline HTML to force a spacer between lines-->
+
+## 12. slice() function
+slice() is a useful function for quickly pulling a subset of rows you specifically want.
+```{r}
+print(Data)
+Data.Slice <- Data %>% slice(1, 2, 5:8)
+print(Data.Slice)
+```
+### 12.1 Or rows you don't want, using the minus "-" sign in front.
+```{r}
+Data.Slice <- Data %>% slice(-1, -2, -(5:8))
+print(Data.Slice)
+```
+
+# A link to the dplyr cheat sheet: <a href="https://nyu-cdsc.github.io/learningr/assets/data-transformation.pdf" target="_blank">Click Here</a>
+A handy guide to keep around when you need to remember syntax or usage details.
