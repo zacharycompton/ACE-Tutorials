@@ -1,0 +1,19 @@
+install.packages("ggcorrplot")
+library(ggcorrplot)
+library(dplyr)
+Data <- ("yourdatasheet.csv")
+##pull our the LH variables
+Data2 <- select(Data, c(adult_weight, 
+                        Gestation, litter_size, litters_year,
+                        max_longevity))
+##omit NAs
+Data3<- na.omit(Data2)
+Data3 %>%
+  mutate_at(1:5, log10) -> Data4
+##correlation matrix
+corr <- round(cor(Data4), 3)
+corr
+##create matrix of p values
+p.mat <- cor_pmat(Data4)
+##create plot
+ggcorrplot(corr, hc.order = T, type = "lower", p.mat = p.mat, lab=T)
